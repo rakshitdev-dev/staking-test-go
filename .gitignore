@@ -1,0 +1,33 @@
+# Go build directories
+/bin/
+/pkg/
+
+# Go workspace file
+*.code-workspace
+
+# Dependency directories
+/vendor/
+
+# Go module files
+/go.sum
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Executables
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+
+# Logs
+*.log
