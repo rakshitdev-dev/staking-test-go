@@ -70,6 +70,17 @@ abigen --abi contract.abi --pkg mycontract --out mycontract/contract.go
 
 > This will create `mycontract/contract.go` which contains all Go functions corresponding to your Solidity contract.
 
+#### With Bytecode
+
+```bash
+abigen   --abi=contract.abi   --bin=contract.bin   --pkg=mycontract   --out=mycontract/contract.go
+```
+#### Without Bytecode
+
+```bash
+abigen   --abi=contract.abi    --pkg=mycontract   --out=mycontract/contract.go
+```
+
 ### 4. Write your `main.go`
 
 Example: reading `stakeDuration()`:

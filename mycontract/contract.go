@@ -29,9 +29,25 @@ var (
 	_ = abi.ConvertType
 )
 
+// CoinPredictionStakingPendingReward is an auto generated low-level Go binding around an user-defined struct.
+type CoinPredictionStakingPendingReward struct {
+	StakeStatus   bool
+	Unstakable    bool
+	PendingReward *big.Int
+}
+
+// CoinPredictionStakingStake is an auto generated low-level Go binding around an user-defined struct.
+type CoinPredictionStakingStake struct {
+	Amount         *big.Int
+	StartTime      *big.Int
+	ClaimedRewards *big.Int
+	Active         bool
+	StakeApr       *big.Int
+}
+
 // MycontractMetaData contains all meta data concerning the Mycontract contract.
 var MycontractMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"name\":\"claimReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"initialOwner\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"reward\",\"type\":\"uint256\"}],\"name\":\"RewardClaimed\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_duration\",\"type\":\"uint256\"}],\"name\":\"setStakeDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_stkRwdPer\",\"type\":\"uint256\"}],\"name\":\"setStakeReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"stake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newDuration\",\"type\":\"uint256\"}],\"name\":\"StakeDurationUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newRewardRate\",\"type\":\"uint256\"}],\"name\":\"StakeRewardUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Staked\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"unstake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Unstaked\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stakeDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stkRwdPer\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contractIERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"claimReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contractIERC20\",\"name\":\"tokenAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"initialMinDurationYears\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"initialMaxDurationYears\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"initialApr\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SafeERC20FailedOperation\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newApr\",\"type\":\"uint256\"}],\"name\":\"AprUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"unlocked\",\"type\":\"bool\"}],\"name\":\"LockToggled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"maxYears\",\"type\":\"uint256\"}],\"name\":\"MaxDurationUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minYears\",\"type\":\"uint256\"}],\"name\":\"MinDurationUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"RewardClaimed\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newAprBasisPoints\",\"type\":\"uint256\"}],\"name\":\"setApr\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newMaxDurationYears\",\"type\":\"uint256\"}],\"name\":\"setMaxDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newMinDurationYears\",\"type\":\"uint256\"}],\"name\":\"setMinDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"stake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Staked\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"toggleLock\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"unstake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewards\",\"type\":\"uint256\"}],\"name\":\"Unstaked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawnUnused\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"withdrawUnusedTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"apr\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserPendingReward\",\"outputs\":[{\"components\":[{\"internalType\":\"bool\",\"name\":\"stakeStatus\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"unstakable\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"pendingReward\",\"type\":\"uint256\"}],\"internalType\":\"structCoinPredictionStaking.PendingReward[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserStakes\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"claimedRewards\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"stakeApr\",\"type\":\"uint256\"}],\"internalType\":\"structCoinPredictionStaking.Stake[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getUserStakesCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxStakeDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minStakeDuration\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contractIERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalStaked\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unlocked\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"YEAR\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
 }
 
 // MycontractABI is the input ABI used to generate the binding from.
@@ -180,6 +196,223 @@ func (_Mycontract *MycontractTransactorRaw) Transact(opts *bind.TransactOpts, me
 	return _Mycontract.Contract.contract.Transact(opts, method, params...)
 }
 
+// YEAR is a free data retrieval call binding the contract method 0x83914540.
+//
+// Solidity: function YEAR() view returns(uint256)
+func (_Mycontract *MycontractCaller) YEAR(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "YEAR")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// YEAR is a free data retrieval call binding the contract method 0x83914540.
+//
+// Solidity: function YEAR() view returns(uint256)
+func (_Mycontract *MycontractSession) YEAR() (*big.Int, error) {
+	return _Mycontract.Contract.YEAR(&_Mycontract.CallOpts)
+}
+
+// YEAR is a free data retrieval call binding the contract method 0x83914540.
+//
+// Solidity: function YEAR() view returns(uint256)
+func (_Mycontract *MycontractCallerSession) YEAR() (*big.Int, error) {
+	return _Mycontract.Contract.YEAR(&_Mycontract.CallOpts)
+}
+
+// Apr is a free data retrieval call binding the contract method 0x57ded9c9.
+//
+// Solidity: function apr() view returns(uint256)
+func (_Mycontract *MycontractCaller) Apr(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "apr")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// Apr is a free data retrieval call binding the contract method 0x57ded9c9.
+//
+// Solidity: function apr() view returns(uint256)
+func (_Mycontract *MycontractSession) Apr() (*big.Int, error) {
+	return _Mycontract.Contract.Apr(&_Mycontract.CallOpts)
+}
+
+// Apr is a free data retrieval call binding the contract method 0x57ded9c9.
+//
+// Solidity: function apr() view returns(uint256)
+func (_Mycontract *MycontractCallerSession) Apr() (*big.Int, error) {
+	return _Mycontract.Contract.Apr(&_Mycontract.CallOpts)
+}
+
+// GetUserPendingReward is a free data retrieval call binding the contract method 0xc6710629.
+//
+// Solidity: function getUserPendingReward(address user) view returns((bool,bool,uint256)[])
+func (_Mycontract *MycontractCaller) GetUserPendingReward(opts *bind.CallOpts, user common.Address) ([]CoinPredictionStakingPendingReward, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "getUserPendingReward", user)
+
+	if err != nil {
+		return *new([]CoinPredictionStakingPendingReward), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([]CoinPredictionStakingPendingReward)).(*[]CoinPredictionStakingPendingReward)
+
+	return out0, err
+
+}
+
+// GetUserPendingReward is a free data retrieval call binding the contract method 0xc6710629.
+//
+// Solidity: function getUserPendingReward(address user) view returns((bool,bool,uint256)[])
+func (_Mycontract *MycontractSession) GetUserPendingReward(user common.Address) ([]CoinPredictionStakingPendingReward, error) {
+	return _Mycontract.Contract.GetUserPendingReward(&_Mycontract.CallOpts, user)
+}
+
+// GetUserPendingReward is a free data retrieval call binding the contract method 0xc6710629.
+//
+// Solidity: function getUserPendingReward(address user) view returns((bool,bool,uint256)[])
+func (_Mycontract *MycontractCallerSession) GetUserPendingReward(user common.Address) ([]CoinPredictionStakingPendingReward, error) {
+	return _Mycontract.Contract.GetUserPendingReward(&_Mycontract.CallOpts, user)
+}
+
+// GetUserStakes is a free data retrieval call binding the contract method 0x842e2981.
+//
+// Solidity: function getUserStakes(address user) view returns((uint256,uint256,uint256,bool,uint256)[])
+func (_Mycontract *MycontractCaller) GetUserStakes(opts *bind.CallOpts, user common.Address) ([]CoinPredictionStakingStake, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "getUserStakes", user)
+
+	if err != nil {
+		return *new([]CoinPredictionStakingStake), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new([]CoinPredictionStakingStake)).(*[]CoinPredictionStakingStake)
+
+	return out0, err
+
+}
+
+// GetUserStakes is a free data retrieval call binding the contract method 0x842e2981.
+//
+// Solidity: function getUserStakes(address user) view returns((uint256,uint256,uint256,bool,uint256)[])
+func (_Mycontract *MycontractSession) GetUserStakes(user common.Address) ([]CoinPredictionStakingStake, error) {
+	return _Mycontract.Contract.GetUserStakes(&_Mycontract.CallOpts, user)
+}
+
+// GetUserStakes is a free data retrieval call binding the contract method 0x842e2981.
+//
+// Solidity: function getUserStakes(address user) view returns((uint256,uint256,uint256,bool,uint256)[])
+func (_Mycontract *MycontractCallerSession) GetUserStakes(user common.Address) ([]CoinPredictionStakingStake, error) {
+	return _Mycontract.Contract.GetUserStakes(&_Mycontract.CallOpts, user)
+}
+
+// GetUserStakesCount is a free data retrieval call binding the contract method 0x98dc8dea.
+//
+// Solidity: function getUserStakesCount(address user) view returns(uint256)
+func (_Mycontract *MycontractCaller) GetUserStakesCount(opts *bind.CallOpts, user common.Address) (*big.Int, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "getUserStakesCount", user)
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// GetUserStakesCount is a free data retrieval call binding the contract method 0x98dc8dea.
+//
+// Solidity: function getUserStakesCount(address user) view returns(uint256)
+func (_Mycontract *MycontractSession) GetUserStakesCount(user common.Address) (*big.Int, error) {
+	return _Mycontract.Contract.GetUserStakesCount(&_Mycontract.CallOpts, user)
+}
+
+// GetUserStakesCount is a free data retrieval call binding the contract method 0x98dc8dea.
+//
+// Solidity: function getUserStakesCount(address user) view returns(uint256)
+func (_Mycontract *MycontractCallerSession) GetUserStakesCount(user common.Address) (*big.Int, error) {
+	return _Mycontract.Contract.GetUserStakesCount(&_Mycontract.CallOpts, user)
+}
+
+// MaxStakeDuration is a free data retrieval call binding the contract method 0x76f70003.
+//
+// Solidity: function maxStakeDuration() view returns(uint256)
+func (_Mycontract *MycontractCaller) MaxStakeDuration(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "maxStakeDuration")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// MaxStakeDuration is a free data retrieval call binding the contract method 0x76f70003.
+//
+// Solidity: function maxStakeDuration() view returns(uint256)
+func (_Mycontract *MycontractSession) MaxStakeDuration() (*big.Int, error) {
+	return _Mycontract.Contract.MaxStakeDuration(&_Mycontract.CallOpts)
+}
+
+// MaxStakeDuration is a free data retrieval call binding the contract method 0x76f70003.
+//
+// Solidity: function maxStakeDuration() view returns(uint256)
+func (_Mycontract *MycontractCallerSession) MaxStakeDuration() (*big.Int, error) {
+	return _Mycontract.Contract.MaxStakeDuration(&_Mycontract.CallOpts)
+}
+
+// MinStakeDuration is a free data retrieval call binding the contract method 0x5fec5c64.
+//
+// Solidity: function minStakeDuration() view returns(uint256)
+func (_Mycontract *MycontractCaller) MinStakeDuration(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "minStakeDuration")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
+}
+
+// MinStakeDuration is a free data retrieval call binding the contract method 0x5fec5c64.
+//
+// Solidity: function minStakeDuration() view returns(uint256)
+func (_Mycontract *MycontractSession) MinStakeDuration() (*big.Int, error) {
+	return _Mycontract.Contract.MinStakeDuration(&_Mycontract.CallOpts)
+}
+
+// MinStakeDuration is a free data retrieval call binding the contract method 0x5fec5c64.
+//
+// Solidity: function minStakeDuration() view returns(uint256)
+func (_Mycontract *MycontractCallerSession) MinStakeDuration() (*big.Int, error) {
+	return _Mycontract.Contract.MinStakeDuration(&_Mycontract.CallOpts)
+}
+
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
@@ -209,68 +442,6 @@ func (_Mycontract *MycontractSession) Owner() (common.Address, error) {
 // Solidity: function owner() view returns(address)
 func (_Mycontract *MycontractCallerSession) Owner() (common.Address, error) {
 	return _Mycontract.Contract.Owner(&_Mycontract.CallOpts)
-}
-
-// StakeDuration is a free data retrieval call binding the contract method 0x40f02ab6.
-//
-// Solidity: function stakeDuration() view returns(uint256)
-func (_Mycontract *MycontractCaller) StakeDuration(opts *bind.CallOpts) (*big.Int, error) {
-	var out []interface{}
-	err := _Mycontract.contract.Call(opts, &out, "stakeDuration")
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// StakeDuration is a free data retrieval call binding the contract method 0x40f02ab6.
-//
-// Solidity: function stakeDuration() view returns(uint256)
-func (_Mycontract *MycontractSession) StakeDuration() (*big.Int, error) {
-	return _Mycontract.Contract.StakeDuration(&_Mycontract.CallOpts)
-}
-
-// StakeDuration is a free data retrieval call binding the contract method 0x40f02ab6.
-//
-// Solidity: function stakeDuration() view returns(uint256)
-func (_Mycontract *MycontractCallerSession) StakeDuration() (*big.Int, error) {
-	return _Mycontract.Contract.StakeDuration(&_Mycontract.CallOpts)
-}
-
-// StkRwdPer is a free data retrieval call binding the contract method 0x3377a7a6.
-//
-// Solidity: function stkRwdPer() view returns(uint256)
-func (_Mycontract *MycontractCaller) StkRwdPer(opts *bind.CallOpts) (*big.Int, error) {
-	var out []interface{}
-	err := _Mycontract.contract.Call(opts, &out, "stkRwdPer")
-
-	if err != nil {
-		return *new(*big.Int), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
-
-	return out0, err
-
-}
-
-// StkRwdPer is a free data retrieval call binding the contract method 0x3377a7a6.
-//
-// Solidity: function stkRwdPer() view returns(uint256)
-func (_Mycontract *MycontractSession) StkRwdPer() (*big.Int, error) {
-	return _Mycontract.Contract.StkRwdPer(&_Mycontract.CallOpts)
-}
-
-// StkRwdPer is a free data retrieval call binding the contract method 0x3377a7a6.
-//
-// Solidity: function stkRwdPer() view returns(uint256)
-func (_Mycontract *MycontractCallerSession) StkRwdPer() (*big.Int, error) {
-	return _Mycontract.Contract.StkRwdPer(&_Mycontract.CallOpts)
 }
 
 // Token is a free data retrieval call binding the contract method 0xfc0c546a.
@@ -304,109 +475,192 @@ func (_Mycontract *MycontractCallerSession) Token() (common.Address, error) {
 	return _Mycontract.Contract.Token(&_Mycontract.CallOpts)
 }
 
-// ClaimReward is a paid mutator transaction binding the contract method 0xb88a802f.
+// TotalStaked is a free data retrieval call binding the contract method 0x817b1cd2.
 //
-// Solidity: function claimReward() returns()
-func (_Mycontract *MycontractTransactor) ClaimReward(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Mycontract.contract.Transact(opts, "claimReward")
+// Solidity: function totalStaked() view returns(uint256)
+func (_Mycontract *MycontractCaller) TotalStaked(opts *bind.CallOpts) (*big.Int, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "totalStaked")
+
+	if err != nil {
+		return *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
+
+	return out0, err
+
 }
 
-// ClaimReward is a paid mutator transaction binding the contract method 0xb88a802f.
+// TotalStaked is a free data retrieval call binding the contract method 0x817b1cd2.
 //
-// Solidity: function claimReward() returns()
-func (_Mycontract *MycontractSession) ClaimReward() (*types.Transaction, error) {
-	return _Mycontract.Contract.ClaimReward(&_Mycontract.TransactOpts)
+// Solidity: function totalStaked() view returns(uint256)
+func (_Mycontract *MycontractSession) TotalStaked() (*big.Int, error) {
+	return _Mycontract.Contract.TotalStaked(&_Mycontract.CallOpts)
 }
 
-// ClaimReward is a paid mutator transaction binding the contract method 0xb88a802f.
+// TotalStaked is a free data retrieval call binding the contract method 0x817b1cd2.
 //
-// Solidity: function claimReward() returns()
-func (_Mycontract *MycontractTransactorSession) ClaimReward() (*types.Transaction, error) {
-	return _Mycontract.Contract.ClaimReward(&_Mycontract.TransactOpts)
+// Solidity: function totalStaked() view returns(uint256)
+func (_Mycontract *MycontractCallerSession) TotalStaked() (*big.Int, error) {
+	return _Mycontract.Contract.TotalStaked(&_Mycontract.CallOpts)
 }
 
-// RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
+// Unlocked is a free data retrieval call binding the contract method 0x6a5e2650.
 //
-// Solidity: function renounceOwnership() returns()
-func (_Mycontract *MycontractTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Mycontract.contract.Transact(opts, "renounceOwnership")
+// Solidity: function unlocked() view returns(bool)
+func (_Mycontract *MycontractCaller) Unlocked(opts *bind.CallOpts) (bool, error) {
+	var out []interface{}
+	err := _Mycontract.contract.Call(opts, &out, "unlocked")
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
 }
 
-// RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
+// Unlocked is a free data retrieval call binding the contract method 0x6a5e2650.
 //
-// Solidity: function renounceOwnership() returns()
-func (_Mycontract *MycontractSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Mycontract.Contract.RenounceOwnership(&_Mycontract.TransactOpts)
+// Solidity: function unlocked() view returns(bool)
+func (_Mycontract *MycontractSession) Unlocked() (bool, error) {
+	return _Mycontract.Contract.Unlocked(&_Mycontract.CallOpts)
 }
 
-// RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
+// Unlocked is a free data retrieval call binding the contract method 0x6a5e2650.
 //
-// Solidity: function renounceOwnership() returns()
-func (_Mycontract *MycontractTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Mycontract.Contract.RenounceOwnership(&_Mycontract.TransactOpts)
+// Solidity: function unlocked() view returns(bool)
+func (_Mycontract *MycontractCallerSession) Unlocked() (bool, error) {
+	return _Mycontract.Contract.Unlocked(&_Mycontract.CallOpts)
 }
 
-// SetStakeDuration is a paid mutator transaction binding the contract method 0xf978be1a.
+// ClaimReward is a paid mutator transaction binding the contract method 0xae169a50.
 //
-// Solidity: function setStakeDuration(uint256 _duration) returns()
-func (_Mycontract *MycontractTransactor) SetStakeDuration(opts *bind.TransactOpts, _duration *big.Int) (*types.Transaction, error) {
-	return _Mycontract.contract.Transact(opts, "setStakeDuration", _duration)
+// Solidity: function claimReward(uint256 index) returns()
+func (_Mycontract *MycontractTransactor) ClaimReward(opts *bind.TransactOpts, index *big.Int) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "claimReward", index)
 }
 
-// SetStakeDuration is a paid mutator transaction binding the contract method 0xf978be1a.
+// ClaimReward is a paid mutator transaction binding the contract method 0xae169a50.
 //
-// Solidity: function setStakeDuration(uint256 _duration) returns()
-func (_Mycontract *MycontractSession) SetStakeDuration(_duration *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.SetStakeDuration(&_Mycontract.TransactOpts, _duration)
+// Solidity: function claimReward(uint256 index) returns()
+func (_Mycontract *MycontractSession) ClaimReward(index *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.ClaimReward(&_Mycontract.TransactOpts, index)
 }
 
-// SetStakeDuration is a paid mutator transaction binding the contract method 0xf978be1a.
+// ClaimReward is a paid mutator transaction binding the contract method 0xae169a50.
 //
-// Solidity: function setStakeDuration(uint256 _duration) returns()
-func (_Mycontract *MycontractTransactorSession) SetStakeDuration(_duration *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.SetStakeDuration(&_Mycontract.TransactOpts, _duration)
+// Solidity: function claimReward(uint256 index) returns()
+func (_Mycontract *MycontractTransactorSession) ClaimReward(index *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.ClaimReward(&_Mycontract.TransactOpts, index)
 }
 
-// SetStakeReward is a paid mutator transaction binding the contract method 0x40aed8ea.
+// SetApr is a paid mutator transaction binding the contract method 0x59cee29c.
 //
-// Solidity: function setStakeReward(uint256 _stkRwdPer) returns()
-func (_Mycontract *MycontractTransactor) SetStakeReward(opts *bind.TransactOpts, _stkRwdPer *big.Int) (*types.Transaction, error) {
-	return _Mycontract.contract.Transact(opts, "setStakeReward", _stkRwdPer)
+// Solidity: function setApr(uint256 newAprBasisPoints) returns()
+func (_Mycontract *MycontractTransactor) SetApr(opts *bind.TransactOpts, newAprBasisPoints *big.Int) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "setApr", newAprBasisPoints)
 }
 
-// SetStakeReward is a paid mutator transaction binding the contract method 0x40aed8ea.
+// SetApr is a paid mutator transaction binding the contract method 0x59cee29c.
 //
-// Solidity: function setStakeReward(uint256 _stkRwdPer) returns()
-func (_Mycontract *MycontractSession) SetStakeReward(_stkRwdPer *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.SetStakeReward(&_Mycontract.TransactOpts, _stkRwdPer)
+// Solidity: function setApr(uint256 newAprBasisPoints) returns()
+func (_Mycontract *MycontractSession) SetApr(newAprBasisPoints *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.SetApr(&_Mycontract.TransactOpts, newAprBasisPoints)
 }
 
-// SetStakeReward is a paid mutator transaction binding the contract method 0x40aed8ea.
+// SetApr is a paid mutator transaction binding the contract method 0x59cee29c.
 //
-// Solidity: function setStakeReward(uint256 _stkRwdPer) returns()
-func (_Mycontract *MycontractTransactorSession) SetStakeReward(_stkRwdPer *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.SetStakeReward(&_Mycontract.TransactOpts, _stkRwdPer)
+// Solidity: function setApr(uint256 newAprBasisPoints) returns()
+func (_Mycontract *MycontractTransactorSession) SetApr(newAprBasisPoints *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.SetApr(&_Mycontract.TransactOpts, newAprBasisPoints)
+}
+
+// SetMaxDuration is a paid mutator transaction binding the contract method 0xcf0f34c4.
+//
+// Solidity: function setMaxDuration(uint256 newMaxDurationYears) returns()
+func (_Mycontract *MycontractTransactor) SetMaxDuration(opts *bind.TransactOpts, newMaxDurationYears *big.Int) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "setMaxDuration", newMaxDurationYears)
+}
+
+// SetMaxDuration is a paid mutator transaction binding the contract method 0xcf0f34c4.
+//
+// Solidity: function setMaxDuration(uint256 newMaxDurationYears) returns()
+func (_Mycontract *MycontractSession) SetMaxDuration(newMaxDurationYears *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.SetMaxDuration(&_Mycontract.TransactOpts, newMaxDurationYears)
+}
+
+// SetMaxDuration is a paid mutator transaction binding the contract method 0xcf0f34c4.
+//
+// Solidity: function setMaxDuration(uint256 newMaxDurationYears) returns()
+func (_Mycontract *MycontractTransactorSession) SetMaxDuration(newMaxDurationYears *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.SetMaxDuration(&_Mycontract.TransactOpts, newMaxDurationYears)
+}
+
+// SetMinDuration is a paid mutator transaction binding the contract method 0x1674bade.
+//
+// Solidity: function setMinDuration(uint256 newMinDurationYears) returns()
+func (_Mycontract *MycontractTransactor) SetMinDuration(opts *bind.TransactOpts, newMinDurationYears *big.Int) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "setMinDuration", newMinDurationYears)
+}
+
+// SetMinDuration is a paid mutator transaction binding the contract method 0x1674bade.
+//
+// Solidity: function setMinDuration(uint256 newMinDurationYears) returns()
+func (_Mycontract *MycontractSession) SetMinDuration(newMinDurationYears *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.SetMinDuration(&_Mycontract.TransactOpts, newMinDurationYears)
+}
+
+// SetMinDuration is a paid mutator transaction binding the contract method 0x1674bade.
+//
+// Solidity: function setMinDuration(uint256 newMinDurationYears) returns()
+func (_Mycontract *MycontractTransactorSession) SetMinDuration(newMinDurationYears *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.SetMinDuration(&_Mycontract.TransactOpts, newMinDurationYears)
 }
 
 // Stake is a paid mutator transaction binding the contract method 0xa694fc3a.
 //
-// Solidity: function stake(uint256 value) returns()
-func (_Mycontract *MycontractTransactor) Stake(opts *bind.TransactOpts, value *big.Int) (*types.Transaction, error) {
-	return _Mycontract.contract.Transact(opts, "stake", value)
+// Solidity: function stake(uint256 amount) returns()
+func (_Mycontract *MycontractTransactor) Stake(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "stake", amount)
 }
 
 // Stake is a paid mutator transaction binding the contract method 0xa694fc3a.
 //
-// Solidity: function stake(uint256 value) returns()
-func (_Mycontract *MycontractSession) Stake(value *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.Stake(&_Mycontract.TransactOpts, value)
+// Solidity: function stake(uint256 amount) returns()
+func (_Mycontract *MycontractSession) Stake(amount *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.Stake(&_Mycontract.TransactOpts, amount)
 }
 
 // Stake is a paid mutator transaction binding the contract method 0xa694fc3a.
 //
-// Solidity: function stake(uint256 value) returns()
-func (_Mycontract *MycontractTransactorSession) Stake(value *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.Stake(&_Mycontract.TransactOpts, value)
+// Solidity: function stake(uint256 amount) returns()
+func (_Mycontract *MycontractTransactorSession) Stake(amount *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.Stake(&_Mycontract.TransactOpts, amount)
+}
+
+// ToggleLock is a paid mutator transaction binding the contract method 0xff9413d8.
+//
+// Solidity: function toggleLock() returns()
+func (_Mycontract *MycontractTransactor) ToggleLock(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "toggleLock")
+}
+
+// ToggleLock is a paid mutator transaction binding the contract method 0xff9413d8.
+//
+// Solidity: function toggleLock() returns()
+func (_Mycontract *MycontractSession) ToggleLock() (*types.Transaction, error) {
+	return _Mycontract.Contract.ToggleLock(&_Mycontract.TransactOpts)
+}
+
+// ToggleLock is a paid mutator transaction binding the contract method 0xff9413d8.
+//
+// Solidity: function toggleLock() returns()
+func (_Mycontract *MycontractTransactorSession) ToggleLock() (*types.Transaction, error) {
+	return _Mycontract.Contract.ToggleLock(&_Mycontract.TransactOpts)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
@@ -432,23 +686,580 @@ func (_Mycontract *MycontractTransactorSession) TransferOwnership(newOwner commo
 
 // Unstake is a paid mutator transaction binding the contract method 0x2e17de78.
 //
-// Solidity: function unstake(uint256 amount) returns()
-func (_Mycontract *MycontractTransactor) Unstake(opts *bind.TransactOpts, amount *big.Int) (*types.Transaction, error) {
-	return _Mycontract.contract.Transact(opts, "unstake", amount)
+// Solidity: function unstake(uint256 index) returns()
+func (_Mycontract *MycontractTransactor) Unstake(opts *bind.TransactOpts, index *big.Int) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "unstake", index)
 }
 
 // Unstake is a paid mutator transaction binding the contract method 0x2e17de78.
 //
-// Solidity: function unstake(uint256 amount) returns()
-func (_Mycontract *MycontractSession) Unstake(amount *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.Unstake(&_Mycontract.TransactOpts, amount)
+// Solidity: function unstake(uint256 index) returns()
+func (_Mycontract *MycontractSession) Unstake(index *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.Unstake(&_Mycontract.TransactOpts, index)
 }
 
 // Unstake is a paid mutator transaction binding the contract method 0x2e17de78.
 //
-// Solidity: function unstake(uint256 amount) returns()
-func (_Mycontract *MycontractTransactorSession) Unstake(amount *big.Int) (*types.Transaction, error) {
-	return _Mycontract.Contract.Unstake(&_Mycontract.TransactOpts, amount)
+// Solidity: function unstake(uint256 index) returns()
+func (_Mycontract *MycontractTransactorSession) Unstake(index *big.Int) (*types.Transaction, error) {
+	return _Mycontract.Contract.Unstake(&_Mycontract.TransactOpts, index)
+}
+
+// WithdrawUnusedTokens is a paid mutator transaction binding the contract method 0x75cd81b7.
+//
+// Solidity: function withdrawUnusedTokens() returns()
+func (_Mycontract *MycontractTransactor) WithdrawUnusedTokens(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Mycontract.contract.Transact(opts, "withdrawUnusedTokens")
+}
+
+// WithdrawUnusedTokens is a paid mutator transaction binding the contract method 0x75cd81b7.
+//
+// Solidity: function withdrawUnusedTokens() returns()
+func (_Mycontract *MycontractSession) WithdrawUnusedTokens() (*types.Transaction, error) {
+	return _Mycontract.Contract.WithdrawUnusedTokens(&_Mycontract.TransactOpts)
+}
+
+// WithdrawUnusedTokens is a paid mutator transaction binding the contract method 0x75cd81b7.
+//
+// Solidity: function withdrawUnusedTokens() returns()
+func (_Mycontract *MycontractTransactorSession) WithdrawUnusedTokens() (*types.Transaction, error) {
+	return _Mycontract.Contract.WithdrawUnusedTokens(&_Mycontract.TransactOpts)
+}
+
+// MycontractAprUpdatedIterator is returned from FilterAprUpdated and is used to iterate over the raw logs and unpacked data for AprUpdated events raised by the Mycontract contract.
+type MycontractAprUpdatedIterator struct {
+	Event *MycontractAprUpdated // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MycontractAprUpdatedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MycontractAprUpdated)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MycontractAprUpdated)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MycontractAprUpdatedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MycontractAprUpdatedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MycontractAprUpdated represents a AprUpdated event raised by the Mycontract contract.
+type MycontractAprUpdated struct {
+	NewApr *big.Int
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterAprUpdated is a free log retrieval operation binding the contract event 0x16bc525116a7ec45cf36d84a97ab6b444a8c5264cc1a9468bfae786131561115.
+//
+// Solidity: event AprUpdated(uint256 newApr)
+func (_Mycontract *MycontractFilterer) FilterAprUpdated(opts *bind.FilterOpts) (*MycontractAprUpdatedIterator, error) {
+
+	logs, sub, err := _Mycontract.contract.FilterLogs(opts, "AprUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return &MycontractAprUpdatedIterator{contract: _Mycontract.contract, event: "AprUpdated", logs: logs, sub: sub}, nil
+}
+
+// WatchAprUpdated is a free log subscription operation binding the contract event 0x16bc525116a7ec45cf36d84a97ab6b444a8c5264cc1a9468bfae786131561115.
+//
+// Solidity: event AprUpdated(uint256 newApr)
+func (_Mycontract *MycontractFilterer) WatchAprUpdated(opts *bind.WatchOpts, sink chan<- *MycontractAprUpdated) (event.Subscription, error) {
+
+	logs, sub, err := _Mycontract.contract.WatchLogs(opts, "AprUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MycontractAprUpdated)
+				if err := _Mycontract.contract.UnpackLog(event, "AprUpdated", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseAprUpdated is a log parse operation binding the contract event 0x16bc525116a7ec45cf36d84a97ab6b444a8c5264cc1a9468bfae786131561115.
+//
+// Solidity: event AprUpdated(uint256 newApr)
+func (_Mycontract *MycontractFilterer) ParseAprUpdated(log types.Log) (*MycontractAprUpdated, error) {
+	event := new(MycontractAprUpdated)
+	if err := _Mycontract.contract.UnpackLog(event, "AprUpdated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MycontractLockToggledIterator is returned from FilterLockToggled and is used to iterate over the raw logs and unpacked data for LockToggled events raised by the Mycontract contract.
+type MycontractLockToggledIterator struct {
+	Event *MycontractLockToggled // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MycontractLockToggledIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MycontractLockToggled)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MycontractLockToggled)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MycontractLockToggledIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MycontractLockToggledIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MycontractLockToggled represents a LockToggled event raised by the Mycontract contract.
+type MycontractLockToggled struct {
+	Unlocked bool
+	Raw      types.Log // Blockchain specific contextual infos
+}
+
+// FilterLockToggled is a free log retrieval operation binding the contract event 0x9011bbd43ef09c72953d907f4f5fc45830479ca653446fc9380711238b889276.
+//
+// Solidity: event LockToggled(bool unlocked)
+func (_Mycontract *MycontractFilterer) FilterLockToggled(opts *bind.FilterOpts) (*MycontractLockToggledIterator, error) {
+
+	logs, sub, err := _Mycontract.contract.FilterLogs(opts, "LockToggled")
+	if err != nil {
+		return nil, err
+	}
+	return &MycontractLockToggledIterator{contract: _Mycontract.contract, event: "LockToggled", logs: logs, sub: sub}, nil
+}
+
+// WatchLockToggled is a free log subscription operation binding the contract event 0x9011bbd43ef09c72953d907f4f5fc45830479ca653446fc9380711238b889276.
+//
+// Solidity: event LockToggled(bool unlocked)
+func (_Mycontract *MycontractFilterer) WatchLockToggled(opts *bind.WatchOpts, sink chan<- *MycontractLockToggled) (event.Subscription, error) {
+
+	logs, sub, err := _Mycontract.contract.WatchLogs(opts, "LockToggled")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MycontractLockToggled)
+				if err := _Mycontract.contract.UnpackLog(event, "LockToggled", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseLockToggled is a log parse operation binding the contract event 0x9011bbd43ef09c72953d907f4f5fc45830479ca653446fc9380711238b889276.
+//
+// Solidity: event LockToggled(bool unlocked)
+func (_Mycontract *MycontractFilterer) ParseLockToggled(log types.Log) (*MycontractLockToggled, error) {
+	event := new(MycontractLockToggled)
+	if err := _Mycontract.contract.UnpackLog(event, "LockToggled", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MycontractMaxDurationUpdatedIterator is returned from FilterMaxDurationUpdated and is used to iterate over the raw logs and unpacked data for MaxDurationUpdated events raised by the Mycontract contract.
+type MycontractMaxDurationUpdatedIterator struct {
+	Event *MycontractMaxDurationUpdated // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MycontractMaxDurationUpdatedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MycontractMaxDurationUpdated)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MycontractMaxDurationUpdated)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MycontractMaxDurationUpdatedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MycontractMaxDurationUpdatedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MycontractMaxDurationUpdated represents a MaxDurationUpdated event raised by the Mycontract contract.
+type MycontractMaxDurationUpdated struct {
+	MaxYears *big.Int
+	Raw      types.Log // Blockchain specific contextual infos
+}
+
+// FilterMaxDurationUpdated is a free log retrieval operation binding the contract event 0x5051341ab3f6d56c8295227b7476589d73ae29d5dfaff08dfc01f67f28a8a3e3.
+//
+// Solidity: event MaxDurationUpdated(uint256 maxYears)
+func (_Mycontract *MycontractFilterer) FilterMaxDurationUpdated(opts *bind.FilterOpts) (*MycontractMaxDurationUpdatedIterator, error) {
+
+	logs, sub, err := _Mycontract.contract.FilterLogs(opts, "MaxDurationUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return &MycontractMaxDurationUpdatedIterator{contract: _Mycontract.contract, event: "MaxDurationUpdated", logs: logs, sub: sub}, nil
+}
+
+// WatchMaxDurationUpdated is a free log subscription operation binding the contract event 0x5051341ab3f6d56c8295227b7476589d73ae29d5dfaff08dfc01f67f28a8a3e3.
+//
+// Solidity: event MaxDurationUpdated(uint256 maxYears)
+func (_Mycontract *MycontractFilterer) WatchMaxDurationUpdated(opts *bind.WatchOpts, sink chan<- *MycontractMaxDurationUpdated) (event.Subscription, error) {
+
+	logs, sub, err := _Mycontract.contract.WatchLogs(opts, "MaxDurationUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MycontractMaxDurationUpdated)
+				if err := _Mycontract.contract.UnpackLog(event, "MaxDurationUpdated", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseMaxDurationUpdated is a log parse operation binding the contract event 0x5051341ab3f6d56c8295227b7476589d73ae29d5dfaff08dfc01f67f28a8a3e3.
+//
+// Solidity: event MaxDurationUpdated(uint256 maxYears)
+func (_Mycontract *MycontractFilterer) ParseMaxDurationUpdated(log types.Log) (*MycontractMaxDurationUpdated, error) {
+	event := new(MycontractMaxDurationUpdated)
+	if err := _Mycontract.contract.UnpackLog(event, "MaxDurationUpdated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MycontractMinDurationUpdatedIterator is returned from FilterMinDurationUpdated and is used to iterate over the raw logs and unpacked data for MinDurationUpdated events raised by the Mycontract contract.
+type MycontractMinDurationUpdatedIterator struct {
+	Event *MycontractMinDurationUpdated // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MycontractMinDurationUpdatedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MycontractMinDurationUpdated)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MycontractMinDurationUpdated)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MycontractMinDurationUpdatedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MycontractMinDurationUpdatedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MycontractMinDurationUpdated represents a MinDurationUpdated event raised by the Mycontract contract.
+type MycontractMinDurationUpdated struct {
+	MinYears *big.Int
+	Raw      types.Log // Blockchain specific contextual infos
+}
+
+// FilterMinDurationUpdated is a free log retrieval operation binding the contract event 0x049a6934bf12da797a1e19e9f70b578af0fdab9d72c2d4b8d82984a54c9e6400.
+//
+// Solidity: event MinDurationUpdated(uint256 minYears)
+func (_Mycontract *MycontractFilterer) FilterMinDurationUpdated(opts *bind.FilterOpts) (*MycontractMinDurationUpdatedIterator, error) {
+
+	logs, sub, err := _Mycontract.contract.FilterLogs(opts, "MinDurationUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return &MycontractMinDurationUpdatedIterator{contract: _Mycontract.contract, event: "MinDurationUpdated", logs: logs, sub: sub}, nil
+}
+
+// WatchMinDurationUpdated is a free log subscription operation binding the contract event 0x049a6934bf12da797a1e19e9f70b578af0fdab9d72c2d4b8d82984a54c9e6400.
+//
+// Solidity: event MinDurationUpdated(uint256 minYears)
+func (_Mycontract *MycontractFilterer) WatchMinDurationUpdated(opts *bind.WatchOpts, sink chan<- *MycontractMinDurationUpdated) (event.Subscription, error) {
+
+	logs, sub, err := _Mycontract.contract.WatchLogs(opts, "MinDurationUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MycontractMinDurationUpdated)
+				if err := _Mycontract.contract.UnpackLog(event, "MinDurationUpdated", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseMinDurationUpdated is a log parse operation binding the contract event 0x049a6934bf12da797a1e19e9f70b578af0fdab9d72c2d4b8d82984a54c9e6400.
+//
+// Solidity: event MinDurationUpdated(uint256 minYears)
+func (_Mycontract *MycontractFilterer) ParseMinDurationUpdated(log types.Log) (*MycontractMinDurationUpdated, error) {
+	event := new(MycontractMinDurationUpdated)
+	if err := _Mycontract.contract.UnpackLog(event, "MinDurationUpdated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
 }
 
 // MycontractOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Mycontract contract.
@@ -674,13 +1485,13 @@ func (it *MycontractRewardClaimedIterator) Close() error {
 // MycontractRewardClaimed represents a RewardClaimed event raised by the Mycontract contract.
 type MycontractRewardClaimed struct {
 	User   common.Address
-	Reward *big.Int
+	Amount *big.Int
 	Raw    types.Log // Blockchain specific contextual infos
 }
 
 // FilterRewardClaimed is a free log retrieval operation binding the contract event 0x106f923f993c2149d49b4255ff723acafa1f2d94393f561d3eda32ae348f7241.
 //
-// Solidity: event RewardClaimed(address indexed user, uint256 reward)
+// Solidity: event RewardClaimed(address indexed user, uint256 amount)
 func (_Mycontract *MycontractFilterer) FilterRewardClaimed(opts *bind.FilterOpts, user []common.Address) (*MycontractRewardClaimedIterator, error) {
 
 	var userRule []interface{}
@@ -697,7 +1508,7 @@ func (_Mycontract *MycontractFilterer) FilterRewardClaimed(opts *bind.FilterOpts
 
 // WatchRewardClaimed is a free log subscription operation binding the contract event 0x106f923f993c2149d49b4255ff723acafa1f2d94393f561d3eda32ae348f7241.
 //
-// Solidity: event RewardClaimed(address indexed user, uint256 reward)
+// Solidity: event RewardClaimed(address indexed user, uint256 amount)
 func (_Mycontract *MycontractFilterer) WatchRewardClaimed(opts *bind.WatchOpts, sink chan<- *MycontractRewardClaimed, user []common.Address) (event.Subscription, error) {
 
 	var userRule []interface{}
@@ -739,278 +1550,10 @@ func (_Mycontract *MycontractFilterer) WatchRewardClaimed(opts *bind.WatchOpts, 
 
 // ParseRewardClaimed is a log parse operation binding the contract event 0x106f923f993c2149d49b4255ff723acafa1f2d94393f561d3eda32ae348f7241.
 //
-// Solidity: event RewardClaimed(address indexed user, uint256 reward)
+// Solidity: event RewardClaimed(address indexed user, uint256 amount)
 func (_Mycontract *MycontractFilterer) ParseRewardClaimed(log types.Log) (*MycontractRewardClaimed, error) {
 	event := new(MycontractRewardClaimed)
 	if err := _Mycontract.contract.UnpackLog(event, "RewardClaimed", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MycontractStakeDurationUpdatedIterator is returned from FilterStakeDurationUpdated and is used to iterate over the raw logs and unpacked data for StakeDurationUpdated events raised by the Mycontract contract.
-type MycontractStakeDurationUpdatedIterator struct {
-	Event *MycontractStakeDurationUpdated // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MycontractStakeDurationUpdatedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MycontractStakeDurationUpdated)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MycontractStakeDurationUpdated)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MycontractStakeDurationUpdatedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MycontractStakeDurationUpdatedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MycontractStakeDurationUpdated represents a StakeDurationUpdated event raised by the Mycontract contract.
-type MycontractStakeDurationUpdated struct {
-	NewDuration *big.Int
-	Raw         types.Log // Blockchain specific contextual infos
-}
-
-// FilterStakeDurationUpdated is a free log retrieval operation binding the contract event 0x89385ed3f4a942c20c599a15bc11eb4ddf833320cb60b3714b772bd7afcd7931.
-//
-// Solidity: event StakeDurationUpdated(uint256 newDuration)
-func (_Mycontract *MycontractFilterer) FilterStakeDurationUpdated(opts *bind.FilterOpts) (*MycontractStakeDurationUpdatedIterator, error) {
-
-	logs, sub, err := _Mycontract.contract.FilterLogs(opts, "StakeDurationUpdated")
-	if err != nil {
-		return nil, err
-	}
-	return &MycontractStakeDurationUpdatedIterator{contract: _Mycontract.contract, event: "StakeDurationUpdated", logs: logs, sub: sub}, nil
-}
-
-// WatchStakeDurationUpdated is a free log subscription operation binding the contract event 0x89385ed3f4a942c20c599a15bc11eb4ddf833320cb60b3714b772bd7afcd7931.
-//
-// Solidity: event StakeDurationUpdated(uint256 newDuration)
-func (_Mycontract *MycontractFilterer) WatchStakeDurationUpdated(opts *bind.WatchOpts, sink chan<- *MycontractStakeDurationUpdated) (event.Subscription, error) {
-
-	logs, sub, err := _Mycontract.contract.WatchLogs(opts, "StakeDurationUpdated")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MycontractStakeDurationUpdated)
-				if err := _Mycontract.contract.UnpackLog(event, "StakeDurationUpdated", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseStakeDurationUpdated is a log parse operation binding the contract event 0x89385ed3f4a942c20c599a15bc11eb4ddf833320cb60b3714b772bd7afcd7931.
-//
-// Solidity: event StakeDurationUpdated(uint256 newDuration)
-func (_Mycontract *MycontractFilterer) ParseStakeDurationUpdated(log types.Log) (*MycontractStakeDurationUpdated, error) {
-	event := new(MycontractStakeDurationUpdated)
-	if err := _Mycontract.contract.UnpackLog(event, "StakeDurationUpdated", log); err != nil {
-		return nil, err
-	}
-	event.Raw = log
-	return event, nil
-}
-
-// MycontractStakeRewardUpdatedIterator is returned from FilterStakeRewardUpdated and is used to iterate over the raw logs and unpacked data for StakeRewardUpdated events raised by the Mycontract contract.
-type MycontractStakeRewardUpdatedIterator struct {
-	Event *MycontractStakeRewardUpdated // Event containing the contract specifics and raw log
-
-	contract *bind.BoundContract // Generic contract to use for unpacking event data
-	event    string              // Event name to use for unpacking event data
-
-	logs chan types.Log        // Log channel receiving the found contract events
-	sub  ethereum.Subscription // Subscription for errors, completion and termination
-	done bool                  // Whether the subscription completed delivering logs
-	fail error                 // Occurred error to stop iteration
-}
-
-// Next advances the iterator to the subsequent event, returning whether there
-// are any more events found. In case of a retrieval or parsing error, false is
-// returned and Error() can be queried for the exact failure.
-func (it *MycontractStakeRewardUpdatedIterator) Next() bool {
-	// If the iterator failed, stop iterating
-	if it.fail != nil {
-		return false
-	}
-	// If the iterator completed, deliver directly whatever's available
-	if it.done {
-		select {
-		case log := <-it.logs:
-			it.Event = new(MycontractStakeRewardUpdated)
-			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-				it.fail = err
-				return false
-			}
-			it.Event.Raw = log
-			return true
-
-		default:
-			return false
-		}
-	}
-	// Iterator still in progress, wait for either a data or an error event
-	select {
-	case log := <-it.logs:
-		it.Event = new(MycontractStakeRewardUpdated)
-		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
-			it.fail = err
-			return false
-		}
-		it.Event.Raw = log
-		return true
-
-	case err := <-it.sub.Err():
-		it.done = true
-		it.fail = err
-		return it.Next()
-	}
-}
-
-// Error returns any retrieval or parsing error occurred during filtering.
-func (it *MycontractStakeRewardUpdatedIterator) Error() error {
-	return it.fail
-}
-
-// Close terminates the iteration process, releasing any pending underlying
-// resources.
-func (it *MycontractStakeRewardUpdatedIterator) Close() error {
-	it.sub.Unsubscribe()
-	return nil
-}
-
-// MycontractStakeRewardUpdated represents a StakeRewardUpdated event raised by the Mycontract contract.
-type MycontractStakeRewardUpdated struct {
-	NewRewardRate *big.Int
-	Raw           types.Log // Blockchain specific contextual infos
-}
-
-// FilterStakeRewardUpdated is a free log retrieval operation binding the contract event 0x8299c7e9ca8ced629afb284155951141eded288b72d7d6b56cb24fbf999a9dfc.
-//
-// Solidity: event StakeRewardUpdated(uint256 newRewardRate)
-func (_Mycontract *MycontractFilterer) FilterStakeRewardUpdated(opts *bind.FilterOpts) (*MycontractStakeRewardUpdatedIterator, error) {
-
-	logs, sub, err := _Mycontract.contract.FilterLogs(opts, "StakeRewardUpdated")
-	if err != nil {
-		return nil, err
-	}
-	return &MycontractStakeRewardUpdatedIterator{contract: _Mycontract.contract, event: "StakeRewardUpdated", logs: logs, sub: sub}, nil
-}
-
-// WatchStakeRewardUpdated is a free log subscription operation binding the contract event 0x8299c7e9ca8ced629afb284155951141eded288b72d7d6b56cb24fbf999a9dfc.
-//
-// Solidity: event StakeRewardUpdated(uint256 newRewardRate)
-func (_Mycontract *MycontractFilterer) WatchStakeRewardUpdated(opts *bind.WatchOpts, sink chan<- *MycontractStakeRewardUpdated) (event.Subscription, error) {
-
-	logs, sub, err := _Mycontract.contract.WatchLogs(opts, "StakeRewardUpdated")
-	if err != nil {
-		return nil, err
-	}
-	return event.NewSubscription(func(quit <-chan struct{}) error {
-		defer sub.Unsubscribe()
-		for {
-			select {
-			case log := <-logs:
-				// New log arrived, parse the event and forward to the user
-				event := new(MycontractStakeRewardUpdated)
-				if err := _Mycontract.contract.UnpackLog(event, "StakeRewardUpdated", log); err != nil {
-					return err
-				}
-				event.Raw = log
-
-				select {
-				case sink <- event:
-				case err := <-sub.Err():
-					return err
-				case <-quit:
-					return nil
-				}
-			case err := <-sub.Err():
-				return err
-			case <-quit:
-				return nil
-			}
-		}
-	}), nil
-}
-
-// ParseStakeRewardUpdated is a log parse operation binding the contract event 0x8299c7e9ca8ced629afb284155951141eded288b72d7d6b56cb24fbf999a9dfc.
-//
-// Solidity: event StakeRewardUpdated(uint256 newRewardRate)
-func (_Mycontract *MycontractFilterer) ParseStakeRewardUpdated(log types.Log) (*MycontractStakeRewardUpdated, error) {
-	event := new(MycontractStakeRewardUpdated)
-	if err := _Mycontract.contract.UnpackLog(event, "StakeRewardUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -1231,14 +1774,15 @@ func (it *MycontractUnstakedIterator) Close() error {
 
 // MycontractUnstaked represents a Unstaked event raised by the Mycontract contract.
 type MycontractUnstaked struct {
-	User   common.Address
-	Amount *big.Int
-	Raw    types.Log // Blockchain specific contextual infos
+	User    common.Address
+	Amount  *big.Int
+	Rewards *big.Int
+	Raw     types.Log // Blockchain specific contextual infos
 }
 
-// FilterUnstaked is a free log retrieval operation binding the contract event 0x0f5bb82176feb1b5e747e28471aa92156a04d9f3ab9f45f28e2d704232b93f75.
+// FilterUnstaked is a free log retrieval operation binding the contract event 0x7fc4727e062e336010f2c282598ef5f14facb3de68cf8195c2f23e1454b2b74e.
 //
-// Solidity: event Unstaked(address indexed user, uint256 amount)
+// Solidity: event Unstaked(address indexed user, uint256 amount, uint256 rewards)
 func (_Mycontract *MycontractFilterer) FilterUnstaked(opts *bind.FilterOpts, user []common.Address) (*MycontractUnstakedIterator, error) {
 
 	var userRule []interface{}
@@ -1253,9 +1797,9 @@ func (_Mycontract *MycontractFilterer) FilterUnstaked(opts *bind.FilterOpts, use
 	return &MycontractUnstakedIterator{contract: _Mycontract.contract, event: "Unstaked", logs: logs, sub: sub}, nil
 }
 
-// WatchUnstaked is a free log subscription operation binding the contract event 0x0f5bb82176feb1b5e747e28471aa92156a04d9f3ab9f45f28e2d704232b93f75.
+// WatchUnstaked is a free log subscription operation binding the contract event 0x7fc4727e062e336010f2c282598ef5f14facb3de68cf8195c2f23e1454b2b74e.
 //
-// Solidity: event Unstaked(address indexed user, uint256 amount)
+// Solidity: event Unstaked(address indexed user, uint256 amount, uint256 rewards)
 func (_Mycontract *MycontractFilterer) WatchUnstaked(opts *bind.WatchOpts, sink chan<- *MycontractUnstaked, user []common.Address) (event.Subscription, error) {
 
 	var userRule []interface{}
@@ -1295,12 +1839,157 @@ func (_Mycontract *MycontractFilterer) WatchUnstaked(opts *bind.WatchOpts, sink 
 	}), nil
 }
 
-// ParseUnstaked is a log parse operation binding the contract event 0x0f5bb82176feb1b5e747e28471aa92156a04d9f3ab9f45f28e2d704232b93f75.
+// ParseUnstaked is a log parse operation binding the contract event 0x7fc4727e062e336010f2c282598ef5f14facb3de68cf8195c2f23e1454b2b74e.
 //
-// Solidity: event Unstaked(address indexed user, uint256 amount)
+// Solidity: event Unstaked(address indexed user, uint256 amount, uint256 rewards)
 func (_Mycontract *MycontractFilterer) ParseUnstaked(log types.Log) (*MycontractUnstaked, error) {
 	event := new(MycontractUnstaked)
 	if err := _Mycontract.contract.UnpackLog(event, "Unstaked", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// MycontractWithdrawnUnusedIterator is returned from FilterWithdrawnUnused and is used to iterate over the raw logs and unpacked data for WithdrawnUnused events raised by the Mycontract contract.
+type MycontractWithdrawnUnusedIterator struct {
+	Event *MycontractWithdrawnUnused // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *MycontractWithdrawnUnusedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(MycontractWithdrawnUnused)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(MycontractWithdrawnUnused)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *MycontractWithdrawnUnusedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *MycontractWithdrawnUnusedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// MycontractWithdrawnUnused represents a WithdrawnUnused event raised by the Mycontract contract.
+type MycontractWithdrawnUnused struct {
+	Owner  common.Address
+	Amount *big.Int
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterWithdrawnUnused is a free log retrieval operation binding the contract event 0xfb3b624a488261ddeb4fb912d629fefafb3b725dcdd408b0a2b0e719d64cc510.
+//
+// Solidity: event WithdrawnUnused(address indexed owner, uint256 amount)
+func (_Mycontract *MycontractFilterer) FilterWithdrawnUnused(opts *bind.FilterOpts, owner []common.Address) (*MycontractWithdrawnUnusedIterator, error) {
+
+	var ownerRule []interface{}
+	for _, ownerItem := range owner {
+		ownerRule = append(ownerRule, ownerItem)
+	}
+
+	logs, sub, err := _Mycontract.contract.FilterLogs(opts, "WithdrawnUnused", ownerRule)
+	if err != nil {
+		return nil, err
+	}
+	return &MycontractWithdrawnUnusedIterator{contract: _Mycontract.contract, event: "WithdrawnUnused", logs: logs, sub: sub}, nil
+}
+
+// WatchWithdrawnUnused is a free log subscription operation binding the contract event 0xfb3b624a488261ddeb4fb912d629fefafb3b725dcdd408b0a2b0e719d64cc510.
+//
+// Solidity: event WithdrawnUnused(address indexed owner, uint256 amount)
+func (_Mycontract *MycontractFilterer) WatchWithdrawnUnused(opts *bind.WatchOpts, sink chan<- *MycontractWithdrawnUnused, owner []common.Address) (event.Subscription, error) {
+
+	var ownerRule []interface{}
+	for _, ownerItem := range owner {
+		ownerRule = append(ownerRule, ownerItem)
+	}
+
+	logs, sub, err := _Mycontract.contract.WatchLogs(opts, "WithdrawnUnused", ownerRule)
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(MycontractWithdrawnUnused)
+				if err := _Mycontract.contract.UnpackLog(event, "WithdrawnUnused", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseWithdrawnUnused is a log parse operation binding the contract event 0xfb3b624a488261ddeb4fb912d629fefafb3b725dcdd408b0a2b0e719d64cc510.
+//
+// Solidity: event WithdrawnUnused(address indexed owner, uint256 amount)
+func (_Mycontract *MycontractFilterer) ParseWithdrawnUnused(log types.Log) (*MycontractWithdrawnUnused, error) {
+	event := new(MycontractWithdrawnUnused)
+	if err := _Mycontract.contract.UnpackLog(event, "WithdrawnUnused", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

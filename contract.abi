@@ -1,6 +1,12 @@
 [
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
 		"name": "claimReward",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -9,14 +15,24 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_token",
+				"internalType": "contract IERC20",
+				"name": "tokenAddress",
 				"type": "address"
 			},
 			{
-				"internalType": "address",
-				"name": "initialOwner",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "initialMinDurationYears",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "initialMaxDurationYears",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "initialApr",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -26,23 +42,64 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "owner",
+				"name": "token",
 				"type": "address"
 			}
 		],
-		"name": "OwnableInvalidOwner",
+		"name": "SafeERC20FailedOperation",
 		"type": "error"
 	},
 	{
+		"anonymous": false,
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newApr",
+				"type": "uint256"
 			}
 		],
-		"name": "OwnableUnauthorizedAccount",
-		"type": "error"
+		"name": "AprUpdated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "unlocked",
+				"type": "bool"
+			}
+		],
+		"name": "LockToggled",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "maxYears",
+				"type": "uint256"
+			}
+		],
+		"name": "MaxDurationUpdated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "minYears",
+				"type": "uint256"
+			}
+		],
+		"name": "MinDurationUpdated",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -64,13 +121,6 @@
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -82,7 +132,7 @@
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "reward",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
@@ -93,11 +143,11 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_duration",
+				"name": "newAprBasisPoints",
 				"type": "uint256"
 			}
 		],
-		"name": "setStakeDuration",
+		"name": "setApr",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -106,11 +156,11 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_stkRwdPer",
+				"name": "newMaxDurationYears",
 				"type": "uint256"
 			}
 		],
-		"name": "setStakeReward",
+		"name": "setMaxDuration",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -119,7 +169,20 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "value",
+				"name": "newMinDurationYears",
+				"type": "uint256"
+			}
+		],
+		"name": "setMinDuration",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
@@ -127,32 +190,6 @@
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "newDuration",
-				"type": "uint256"
-			}
-		],
-		"name": "StakeDurationUpdated",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "newRewardRate",
-				"type": "uint256"
-			}
-		],
-		"name": "StakeRewardUpdated",
-		"type": "event"
 	},
 	{
 		"anonymous": false,
@@ -174,6 +211,13 @@
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "toggleLock",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -190,7 +234,7 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "amount",
+				"name": "index",
 				"type": "uint256"
 			}
 		],
@@ -213,10 +257,182 @@
 				"internalType": "uint256",
 				"name": "amount",
 				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "rewards",
+				"type": "uint256"
 			}
 		],
 		"name": "Unstaked",
 		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "WithdrawnUnused",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawUnusedTokens",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "apr",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "getUserPendingReward",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "bool",
+						"name": "stakeStatus",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "unstakable",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pendingReward",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct CoinPredictionStaking.PendingReward[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "getUserStakes",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "claimedRewards",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "stakeApr",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct CoinPredictionStaking.Stake[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "getUserStakesCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "maxStakeDuration",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "minStakeDuration",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -233,38 +449,51 @@
 	},
 	{
 		"inputs": [],
-		"name": "stakeDuration",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "stkRwdPer",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "token",
 		"outputs": [
 			{
 				"internalType": "contract IERC20",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalStaked",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "unlocked",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "YEAR",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
